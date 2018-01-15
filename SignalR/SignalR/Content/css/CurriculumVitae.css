@@ -1,0 +1,625 @@
+﻿.fieldWork_profile span {
+    float: none !important;
+    color: #333 !important;
+}
+.button-cv-upload{
+    float:left;
+    width:100%;
+   padding: 20px 0;
+}
+.button-cv-upload > div {
+    width: calc(100% - 125px);
+    float: left;
+    font-family: UTMNeoSansIntel;
+}
+
+.button-cv-upload button {
+    width: 100px;
+    float: left;
+    margin-right: 25px;
+    background-color: #97b8d9;
+    border: none;
+    color: #fff;
+    height: 33px;
+    font-family: UTMNeoSansIntel;
+}
+
+.cv_info {
+    float: left;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.Section2 {
+    width: 100%;
+    background: #f0f0f0;
+    margin-bottom: -100px;
+}
+
+body {
+    margin: 0px;
+}
+
+#change_profile {
+    padding-right: 15px;
+}
+
+.list_attached_file {
+    float: left;
+    width: 98%;
+    height: auto;
+}
+
+.inactive_doc {
+    display: none !important;
+}
+
+.active_doc {
+    display: block !important;
+}
+
+.attached_edit {
+    display: none;
+}
+
+.form_edit_pass {
+    display: none;
+    padding-top: 25px;
+}
+
+.inactive_profile {
+    display: none !important;
+}
+
+.active_profile {
+    display: block !important;
+}
+
+.title_profile {
+    padding-bottom: 20px;
+}
+
+.section1 {
+    height: 300px;
+    width: 100%;
+    background: #1e5790;
+}
+
+.Section2 {
+    width: 100%;
+    background: #f0f0f0;
+}
+
+.content {
+    width: 1122px;
+    margin: auto;
+    position: relative;
+    top: 89px;
+    background: #fff;
+    /* min-width: 1020px; */
+}
+
+.Image_person {
+    position: relative;
+    top: -90px;
+    overflow: hidden;
+    /* position: relative; */
+    width: 245px;
+    /* height: 245px; */
+}
+
+    .Image_person img {
+        background: #fff;
+        border-width: 2px;
+        box-sizing: border-box;
+        padding: 15px;
+        /* border: solid; */
+        border-width: 1px;
+        /* width: 245px; */
+        /* height: 245px; */
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+.content-left {
+    width: 27%;
+    float: left;
+    background: #fff;
+    box-shadow: beige;
+    a: 151px;
+    a: relative;
+}
+
+.Nav-Left {
+    background: #1e5790;
+    width: 75%;
+    float: left;
+    line-height: 27px;
+    position: relative;
+    color: #fff;
+    font-family: UTMHanzel;
+    font-size: 15px;
+}
+
+.Nav-Right {
+    float: right;
+    background: #484848;
+    height: 24.64px;
+    width: 15%;
+    height: 27px;
+    position: relative;
+}
+
+.Nav-Left:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 27px 0 0 20px;
+    border-color: transparent transparent transparent #1e5790;
+    position: absolute;
+    left: 100%;
+    top: 0;
+}
+
+.Nav-Right:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0px 20px 27px 0px;
+    border-color: transparent #484848 transparent transparent;
+    position: absolute;
+    left: -20px;
+    top: 0;
+}
+
+
+.Menu ul {
+    float: left;
+    list-style-type: none;
+    font-family: UTMNeoSansIntel;
+    color: #333333;
+    margin-top: 10px;
+}
+
+.Menu {
+    height: 145px;
+}
+
+.content-right {
+    float: left;
+}
+
+.Nav-right i {
+    float: right;
+    border-bottom-style: solid;
+    margin-right: 18px;
+    border-bottom-width: 2px;
+}
+
+.content-right {
+    width: 71%;
+}
+
+.content-right {
+    background: #fff;
+    min-height: 1272px;
+    margin-top: 56px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    position:relative;
+    z-index:1;
+}
+
+.Nav-right h1 {
+    font-size: 18pt;
+    color: #1e5790;
+    font-family: UTMHanzel;
+    margin-left: 3%;
+}
+
+.Conten-right-Candidate-info {
+    min-height: 434px;
+    margin-left: 3%;
+}
+
+.Conten-right-Change-Pass {
+    min-height: 150px;
+    margin-left: 3%;
+}
+
+.Apply {
+    min-height: 209px;
+    float: left;
+    width: 100%;
+}
+
+.Menu ul li {
+    line-height: 30px;
+    font-size: 14pt;
+    float: left;
+    clear: left;
+}
+
+.Menu img {
+    float: left;
+    clear: left;
+    margin-top: 6px;
+}
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.clearfix {
+    display: inline-block;
+}
+
+* html .clearfix {
+    height: 1%;
+}
+
+.clearfix {
+    display: block;
+}
+
+.Nav-right {
+    width: 98%;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #cccccc;
+    height: 31px;
+    position: relative;
+}
+
+.Name-Position {
+    position: absolute;
+    left: 36px;
+    /* top: -154px; */
+    color: #fff;
+    font-family: UTMHanzel;
+    /* line-height: 3px; */
+    left: 345px;
+    /* width: 100%; */
+}
+
+
+.content-right label {
+    color: #333333;
+    font-family: UTMNeoSansIntel;
+    font-size: 13.5px;
+    /* text-shadow: 1px 0px #d2d2d2; */
+    float: left;
+    /* width: 20%; */
+    /*margin-right: 15px;*/
+}
+#change_profile .Nav-right {
+    width: 100% !important;
+}
+div#list_recruitment_apply {
+    width: 98%;
+}
+
+.content-right h1 {
+    font-size: 17px;
+    color: #1e5790;
+    font-family: UTMNeoSansIntelBold;
+}
+
+.Conten-right-Candidate-Resumes {
+    min-height: 70px;
+    margin-left: 3%;
+    margin-top: 15px;
+}
+
+.Conten-right-Apply {
+    min-height: 209px;
+    margin-left: 3%;
+    margin-top: 15px;
+}
+
+.Conten-right-Change-Pass input {
+    border: none;
+}
+
+.Compact-Memu {
+    position: fixed;
+    top: 154px;
+    left: -36px;
+    transform: rotate(270deg);
+    z-index: 9999;
+    font-family: UTMHanzel;
+    color: #fff;
+    visibility: hidden;
+    width: 96px;
+    text-align: center;
+    background: #1e5790;
+}
+
+
+.Menu-Mobile {
+    /* z-index: 999; */
+    /* left: 313px; */
+    /* top: 34px; */
+    font-size: 34px;
+    color: #39394e;
+    display: none;
+    position: absolute;
+}
+
+.fa-content {
+    position: relative;
+    top: -180px;
+    width: 1122px;
+    margin: auto;
+    padding-bottom: 40px;
+}
+
+@media screen and (max-width: 1125px) {
+
+    .Name-Position {
+       left : 36px;
+    }
+    .content {
+        width: 100%;
+        /* overflow: hidden; */
+        position: relative;
+    }
+
+    .fa-content {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .Menu-Mobile {
+        display: initial;
+        /* z-index: 9999; */
+        /* float: left; */
+        /* margin-top: 6px; */
+        width: 4%;
+        box-sizing: content-box;
+        transition: all 0.2s ease;
+        left: 38px;
+        cursor: pointer;
+    }
+
+    .Active-Menu-Mobile {
+        display: initial;
+        /* z-index: 9999; */
+        /* float: left; */
+        /* margin-top: 6px; */
+        width: 4%;
+        box-sizing: content-box;
+        position: absolute;
+        left: 303px;
+        /* top: 51px; */
+    }
+
+    .content-left {
+        /* display: none; */
+        /* top: 152px; */
+        position: absolute;
+        /* z-index: 1000; */
+        width: 25%;
+        min-width: 233px;
+        left: -279px;
+        transition: all 0.2s ease;
+    }
+
+    .Active-contentleft {
+        /* display: block; */
+        position: absolute;
+        left: 0px;
+        /* top: 152px; */
+    }
+
+    .content-right {
+        width: 100%;
+        /* margin-top: 12px; */
+    }
+
+    .Active-Contenright {
+        width: 100%;
+        /* margin-top: 53px; */
+        overflow: hidden;
+        position: relative;
+        left: 294px;
+        /* overflow: hidden; */
+        left: 258px;
+    }
+
+
+    .content-right:before, .content-right:after {
+        display: none;
+    }
+
+    .Active-Name {
+        left: 345px;
+        transition: all 0.3s ease;
+    }
+
+    .Active-ContentRight {
+        width: 69%;
+    }
+}
+
+
+.MenuMobile span {
+    height: 5px;
+    width: 80%;
+    background: #1e5790;
+}
+
+
+.content-right:before {
+    content: "";
+    position: absolute;
+    left: 7px;
+    bottom: 0;
+    height: 100%;
+    width: 32px;
+    background-color:#fff;
+    z-index: 0;
+}
+
+
+.content-right:after {
+    content: "";
+    position: absolute;
+    left: 7px;
+    bottom: 0;
+    height: 100%;
+    width: 20px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-box-shadow: -2px 0px 20px 0px rgba(173,164,173,0.5);
+    -moz-box-shadow: -2px 0px 20px 0px rgba(173,164,173,0.5);
+    box-shadow: -2px 0px 20px 0px rgba(173,164,173,0.5);
+    z-index: -1;
+}
+
+.Nav-right img {
+    float: right;
+}
+
+a {
+}
+
+.Nav-Left a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.Nav-right a {
+    color: #1e5790;
+}
+
+.Menu a {
+    text-decoration: none;
+    color: #7d7d7d;
+    font-size: 13px;
+}
+
+.content-right h2 {
+    font-family: UTMNeoSansIntelBold;
+    font-size: 13px;
+    color: #1e5790;
+    width: 100%;
+}
+
+
+
+.Info-value {
+    float: left;
+    font-family: UTMNeoSansIntelBold;
+    font-size: 13.5px;
+    /* width: 80%; */
+    /* text-shadow: 1px 1px 1px rgba(0,0,0,0.3); */
+    /* text-rendering: optimizeLegibility !important; */
+    /* -webkit-font-smoothing: antialiased !important; */
+    width: calc(100% - 25% - 15px);
+}
+
+.Info {
+    float: left;
+    display: block;
+    width: 96%;
+    margin-top: 12px;
+}
+
+.Name-Position span {
+    float: left;
+    /* width: 100%; */
+    font-size: 23px;
+    line-height: 35px;
+    text-transform: uppercase;
+}
+
+
+
+    .Name-Position span:nth-child(2) {
+        font-size: 14.5px;
+    }
+
+
+.Conten-right-Candidate-info span {
+    font-size: 13.5px;
+    font-family: UTMNeoSansIntel;
+    color: #1e5790;
+    text-shadow: 0.3px 1px #1e5790;
+    float: left;
+    margin-top: 10px;
+    width: 100%;
+}
+
+
+@media screen and (max-width:550px) {
+    .content-right {
+        width: 100%;
+    }
+
+    .list_attached_file {
+    float: left;
+    width: 100%;
+    height: auto;
+}
+    div#list_recruitment_apply {
+    width: 100%;
+}
+    .Active-Contenright .Name-Position {
+        color: #1e5790;
+        left: 3%;
+    }
+
+    .Active-Contenright {
+        margin-top: 50px;
+        /* margin-top:350px; */
+    }
+
+    .Conten-right-Candidate-Resumes {
+        margin-left: 0;
+        padding-right: 5%;
+    }
+
+    .Conten-right-Apply {
+        margin-left: 0;
+        padding-right: 5%;
+    }
+
+    .Nav-right {
+        width: 95%;
+    }
+
+    .content-right label {
+   
+    margin-right: 15px;
+}
+
+}
+
+
+.Image_person:before {
+    content: "";
+    display: block;
+    margin-top: 100%;
+}
+
+.Info.active_profile label {
+    width: 25%;
+}

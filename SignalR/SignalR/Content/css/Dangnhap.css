@@ -1,0 +1,360 @@
+﻿
+
+.login-nav{
+        margin: 50px 0;
+        float:left;
+        width:100%;
+}
+.login-nav a {
+    padding-top: 11px;
+    float: left;
+    width: 50%;
+    height: 100%;
+    text-align: left;
+    display: block;
+    width: 100%;
+}
+.right a {
+    color: #fff !important;
+}
+.register_none
+{
+    display : none;
+}
+.intro_login
+{
+    width : 100%;
+    float : left;
+    height : auto;
+    padding-bottom : 30px;
+}
+.wrraper-KichHoat {
+    width: 755px;
+    margin: auto;
+    background: #fff;
+    /* height: 700px; */
+    font-family: RobotoSlab-Regular;
+    font-size: 11pt;
+}
+
+.Section {
+    background: #f0f0f0;
+}
+
+.wrraper-KichHoat h1 {
+    background: transparent;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-family: UTMHanzel;
+    color: #1e5790;
+    font-size: 31.5px;
+    text-transform: uppercase;
+}
+
+.left {
+    line-height: 35px;
+    width: 321px;
+    background: #1e5790;
+    float: left;
+    position: relative;
+    color: #fff;
+}
+
+.bottom {
+    background: transparent;
+    width: 100%;
+    margin: auto;
+    font-size: 15px;
+    font-family: UTMHanzel;
+    text-align: center;
+    padding-bottom : 30px;
+}
+
+.right {
+    width: 234px;
+    background: #484848;
+    line-height: 35px;
+    float: left;
+    /* margin-left: 44px; */
+    /* margin-bottom: 80px; */
+    position: relative;
+    color: #fff;
+}
+
+.left:after {
+}
+
+.wrraper-KichHoat {
+}
+
+.bottom a {
+    text-decoration: none;
+    background: none;
+    color: #1e5790;
+   
+}
+
+.left:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 35px 0 0 30px;
+    border-color: transparent transparent transparent #1e5790;
+    position: absolute;
+    left: 100%;
+    top: 0;
+}
+
+.right:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0px 30px 35px 0px;
+    border-color: transparent #484848 transparent transparent;
+    position: absolute;
+    left: -30px;
+    top: 0;
+}
+
+@media screen and (max-width:755px) {
+    .wrraper-KichHoat {
+        width: 100%;
+    }
+}
+
+.bottom input {
+    border: none;
+    width: 100%;
+    /* line-height: 50px; */
+
+    border-bottom: 1px solid #cccccc;
+    font-family: UTMNeoSansIntel;
+    font-size: 16px;
+    color: #666666;
+}
+
+.btn-login-submit {
+    /* width: 33%; */
+    float: left;
+    color: #fff;
+    background: #1e5790;
+    height: 41px;
+    border: none;
+    font-family: UTMHanzel;
+    font-size: 17px;
+    /* min-width: 120px; */
+    padding: 10px;
+}
+
+.wrraper-KichHoat {
+    width: 755px;
+    margin: auto;
+    background: #fff;
+    /* height: 516px; */
+    font-family: RobotoSlab-Regular;
+    font-size: 11pt;
+    max-height: 700px;
+    margin-bottom: 27px;
+    margin-top: 27px;
+    padding-bottom: 35px;
+    padding-top: 40px;
+    text-align: center;
+}
+
+.Section {
+    background: #f0f0f0;
+}
+
+.left {
+    line-height: 35px;
+    width: 61%;
+    background: #1e5790;
+    float: left;
+    position: relative;
+    color: #fff;
+}
+
+.bottom {
+    background: transparent;
+    width: 80%;
+    margin: auto;
+    font-size: 15px;
+    font-family: UTMHanzel;
+    text-align: center;
+}
+
+.right {
+    width: 32%;
+    background: #484848;
+    line-height: 35px;
+    float: right;
+    /* margin-left: 44px; */
+    /* margin-bottom: 70px; */
+    /* position: relative; */
+    color: #fff;
+}
+
+.left:after {
+}
+
+.wrraper-KichHoat {
+}
+
+
+
+.left:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 35px 0 0 30px;
+    border-color: transparent transparent transparent #1e5790;
+    position: absolute;
+    left: 100%;
+    top: 0;
+}
+
+.right:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0px 30px 35px 0px;
+    border-color: transparent #484848 transparent transparent;
+    position: absolute;
+    left: -30px;
+    top: 0;
+}
+
+@media screen and ( max-width:755px) {
+    .wrraper-KichHoat {
+        width: 100%;
+        margin-top: 0;
+    }
+    .login-nav
+    {
+        padding-bottom : 15px;
+    }
+}
+
+
+@media screen and ( max-width:640px) {
+   .wrraper-KichHoat h1 {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: 0;
+}
+   .login-nav {
+    /* margin-top:0; */
+}
+   .login-nav a {
+    padding-top: 26px;
+    font-size: 16px;
+}
+   .intro_login {
+     padding-bottom: 0; 
+}
+   .bottom
+   {
+       font-size : 12px;
+   }
+   .left
+   {
+       width : 64%;
+   }
+
+   .right {
+       width:26%;
+       margin-bottom: 15px;
+       color: #fff;
+
+}
+
+   .bottom input {
+    margin-top: 15px;
+
+}
+   .bottom button {
+    margin-top: 15px;
+}
+}
+
+
+
+body {
+    margin: 0px;
+}
+
+.sub_title{
+    font-family:UTMHanzel;
+    color:#1e5790;
+    font-size:14px;
+    text-decoration:none;
+    margin-bottom: 25px;
+    margin-top: 0;
+}
+
+.external-login{
+    margin-top:25px;
+}
+
+.external-login .btn{
+    padding: 0;
+    margin:0 15px;
+}
+
+.btn-google{
+    background-color:#df4b38;
+    color:#fff;
+}
+
+.form-title{
+    color:#1e5790;
+    font-family:UTMNeoSansIntelBold;
+    font-size:14px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.btn-facebook{
+    background-color:#3b5a99;
+    color:#fff;
+}
+
+@media screen and ( max-width:640px) {
+    .login-nav {
+    margin: 20px 0;
+}
+
+    .bottom
+    {
+        padding-bottom : 10px;
+    }
+    .wrraper-KichHoat h1
+    {
+        font-size : 18px;
+    }
+}
+@media screen and ( max-width:550px) {
+    .wrraper-KichHoat
+    {
+        padding-top : 50px;
+    }
+}
+
+@media screen and ( max-width:400px) {
+   .left , .right
+   {
+       display : none
+   }
+   .register_none
+   {
+       display : block;
+   }
+}
+.Input-format {
+    margin-bottom: 30px;
+}

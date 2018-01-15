@@ -1,0 +1,91 @@
+﻿body {
+}
+h1 {}
+
+.wrraper-KichHoat {
+    width: 755px;
+    margin: auto;
+    background: #fff;
+    height: 516px;
+    font-family: RobotoSlab-Regular;
+    font-size: 11pt;
+    margin-bottom: 20px;
+}
+
+.Section {
+    background: #f0f0f0;
+}
+
+.wrraper-KichHoat h1 {
+    background: transparent;
+    text-align: center;
+    padding-top: 43px;
+    padding-bottom: 43px;
+    font-family: UTMHanzel;
+    color: #1e5790;
+    font-size: 31.5px;
+    text-transform: uppercase;
+}
+
+.left {
+    height: 35px;
+    width: 321px;
+    background: #1e5790;
+    float: left;
+    position: relative;
+}
+.bottom {
+    background: transparent;
+    width: 80%;
+    margin: auto;
+    font-size: 13px;
+}
+
+.right {
+    width: 234px;
+    background: #484848;
+    height: 35px;
+    float: left;
+    margin-left: 44px;
+    margin-bottom: 70px;
+    position: relative;
+}
+
+.left:after {}
+.wrraper-KichHoat {}
+
+.bottom a {
+    text-decoration: none;
+    background: none;
+    color: #1e5790;
+    font-weight: bold;
+}
+.left:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 35px 0 0 30px;
+    border-color: transparent transparent transparent #1e5790;
+    position: absolute;
+    left: 100%;
+    top: 0;
+}
+
+.right:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0px 30px 35px 0px;
+    border-color: transparent #484848 transparent transparent;
+    position: absolute;
+    left: -30px;
+    top: 0;
+}
+@media screen and (max-width:755px){
+   .wrraper-KichHoat
+    {
+        width:100%;
+    }
+}
