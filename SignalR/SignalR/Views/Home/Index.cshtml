@@ -5,5 +5,22 @@
 <div class="page-title">
     <div class="title_left">
         <h3>Thống kê</h3>
+
+        <canvas id="line-chart" width="100%" height="100%"></canvas>
+
+        <div class='form-group'>
+            <div class='col-md-3 col-sm-6'>
+                <label for="from" class="form-label">From</label>
+                <input type="text" id="fromDate" name="fromDate" class="form-control "/>
+            </div>
+            <div class='col-md-3 col-sm-6'>
+                <label for="to" class="form-label">To</label>
+                <input type="text" id="toDate" name="toDate" class="form-control" />
+            </div>
+            <div class='col-md-1 col-sm-2'>
+                <label class="form-label" style='visibility: hidden;'>zxc</label>
+                <input type="button" value='Search' id='search' class='btn btn-success'>
+            </div>
+        </div>
     </div>
 </div>

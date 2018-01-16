@@ -10,6 +10,7 @@ namespace SignalR.Repository
     {
         List<HealthyInformation> GetAllHealthyInformation();
         bool Insert(HealthyInformation healthyInformation);
-
+        List<HealthyInformation> FilterData(DateTime fromDate, DateTime toDate);
+        List<HealthyInformation> MapToListHealthy(List<HealthyInformation> listSource);
     }
 }

@@ -7,6 +7,8 @@
     @Styles.Render("~/Content/css/site")
     @RenderSection("css", required: false)
     @Styles.Render("~/Content/admin")
+    @Styles.Render("~/Content/css/chart")
+
 
 </head>
 <body class="nav-md">
@@ -31,47 +33,6 @@
                                     </a>
                                 </li>
 
-                                <li>
-                                    <a><i class="fa fa-share-square-o"></i>Publishing<span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-
-                                        <li>
-                                            ContentList
-                                        </li>
-                                    </ul>
-                                </li>
-
-                                <li>
-                                    <a><i class="fa fa-object-group"></i>Groups<span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li>
-                                            Group
-                                        </li>
-
-                                    </ul>
-                                </li>
-
-
-
-                                <li>
-                                    <a><i class="fa fa-puzzle-piece"></i>Recruitment<span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-
-                                        <li>
-                                            <a>Statistics<span class="fa fa-chevron-down"></span></a>
-                                            <ul class="nav child_menu">
-                                                <li class="sub_menu">
-
-                                                    QueryData
-                                                </li>
-                                            </ul>
-                                        </li>
-
-                                    </ul>
-                                </li>
-
-
-
                             </ul>
                         </div>
 
@@ -89,45 +50,19 @@
 
                                     </ul>
                                 </li>
-                                <li>
-                                    <a><i class="fa fa-university"></i>ListCatalog<span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
 
-                                        <li>
-                                            FieldWork
-                                        </li>
-
-
-                                    </ul>
-                                </li>
 
                                 <li>
-                                    <a><i class="fa fa-cogs"></i>System<span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-
-                                        <li>
-                                            ParametersSystem
-                                        </li>
-
-                                    </ul>
-                                </li>
-
-                                <li>
-                                    <a><i class="fa fa-envelope-o"></i>MailBox<span class="fa fa-chevron-down"></span></a>
+                                    <a><i class="fa fa-users"></i>Configuration<span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li>
-                                            Inbox
+                                            Index
                                         </li>
 
                                     </ul>
                                 </li>
                         
-                                <li>
-                                    <a href="@Url.Action("Index", "Home", new { Area = "" })" target="_blank">
-                                        <i class="fa fa-home"></i> MainPage
-                                        <span class="label label-success pull-right">Coming Soon</span>
-                                    </a>
-                                </li>
+                          
                             </ul>
                         </div>
                     </div>
@@ -143,7 +78,7 @@
                         <a data-toggle="tooltip" data-placement="top" title="Lock">
                             <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
                         </a>
-                        <a data-toggle="tooltip" data-placement="top" title="Logout" href="@Url.Action("Logout", "Account", new { Area = "Admin" })">
+                        <a data-toggle="tooltip" data-placement="top" title="Logout" href="@Url.Action("Logout", "Account")">
                             <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                         </a>
                     </div>
@@ -171,29 +106,13 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="@Url.Action("Logout","Account")">
                                             <i class="fa fa-sign-out pull-right"></i>Logout
                                         </a>
                                     </li>
                                 </ul>
                             </li>
-                            <li role="presentation" class="dropdown">
-                                @*@{ Html.RenderAction("NavbarInbox", "Mail");}*@
-                            </li>
-                            @*<li class="dropdown">
-                                <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="@Url.Content(String.Format("~/Content/Images/flags/{0}.png", Request.Cookies["lang"].Value))"/>
-                                    <span class="fa fa-angle-down"></span>
-                                </a>*@
-                            @*<ul class="dropdown-menu dropdown-language pull-right">
-                                        <li>
-                                            @Ajax.ImageActionLink(Url.Content("~/Content/Images/flags/vi-VN.png"), "vi-VN", "ChangeLanguage", "Home", new { lang = "vi-VN",ReturnUrl = Request.RawUrl.ToString(), Area = "" },new AjaxOptions { HttpMethod = "Post", OnSuccess = "window.location.reload()"}, .Vietnamese)
-                                        </li>
-                                        <li>
-                                            @Ajax.ImageActionLink(Url.Content("~/Content/Images/flags/en-US.png"), "en-US", "ChangeLanguage", "Home", new { lang = "en-US", ReturnUrl = Request.RawUrl.ToString(), Area = "" }, new AjaxOptions { HttpMethod = "Post", OnSuccess = "window.location.reload()"}, .English)
-                                        </li>
-                                    </ul>
-                                </li>*@
+                          
                         </ul>
                     </nav>
                 </div>
@@ -219,6 +138,7 @@
     @Scripts.Render("~/bundles/site")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/admin")
+    @Scripts.Render("~/bundles/chartjs")
     @RenderSection("scripts", required: false)
 
     <script src="~/Scripts/jquery.signalR-2.2.2.min.js">
@@ -230,9 +150,9 @@
         var healthyCare = $.connection.HealthyCare
         function init() {
             healthyCare.server.getAllInformation().done(function (informations) {
-              
                 $.each(informations, function () {
-                   
+                    initChartJS(informations);
+
                 });
             });
         }
@@ -240,7 +160,7 @@
         healthyCare.client.updateChart = function (informations) {
 
             $.each(informations, function () {
-              
+                initChartJS(informations);
             });
         
         }

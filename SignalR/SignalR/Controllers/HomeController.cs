@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SignalR.Entity;
+using SignalR.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +10,12 @@ namespace SignalR.Controllers
 {
     public class HomeController : BaseController
     {
+       
+
+        public HomeController()
+        {
+           
+        }
         public ActionResult Index()
         {
           
@@ -27,5 +35,7 @@ namespace SignalR.Controllers
 
             return View();
         }
+
+      
     }
 }

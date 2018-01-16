@@ -9,12 +9,13 @@ namespace SignalR.Controllers
 {
     public class BaseController : Controller
     {
-        protected override void OnAuthentication(AuthenticationContext filterContext)
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             if(Session["UserName"] == null)
             {
-                RedirectToAction("Index", "Account");
+                Response.Redirect("/Account/Index",true);
             }
         }
+    
     }
 }

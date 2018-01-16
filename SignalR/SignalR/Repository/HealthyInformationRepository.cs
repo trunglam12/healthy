@@ -16,8 +16,7 @@ namespace SignalR.Repository
         }
         public List<HealthyInformation> GetAllHealthyInformation()
         {
-      
-            return _healthyEntities.HealthyInformation.ToList();
+            return MapToListHealthy(_healthyEntities.HealthyInformation.ToList());
         }
 
         public bool Insert(HealthyInformation healthyInformation)
@@ -29,6 +28,33 @@ namespace SignalR.Repository
             _healthyEntities.SaveChanges();
 
             return newInformation != null ? true : false;
+        }
+
+        public List<HealthyInformation> FilterData(DateTime fromDate,DateTime toDate)
+        {
+            var listAllData = MapToListHealthy(GetAllHealthyInformation());
+            return listAllData.Where(c=>c.CreateDate >= fromDate && c.CreateDate<=toDate).ToList();
+         
+        }
+
+        public List<HealthyInformation> MapToListHealthy(List<HealthyInformation> listSource)
+        {
+            var listDestination = new List<HealthyInformation>();
+         
+            for (int i = 0; i < listSource.Count; i++)
+            {
+                listDestination.Add(new HealthyInformation
+                {
+                    CreateDate = listSource[i].CreateDate,
+                    HeartBeat = listSource[i].HeartBeat,
+                    ID = listSource[i].ID,
+                    Oxy = listSource[i].Oxy,
+                    UserID = listSource[i].UserID
+                });
+            }
+
+            return listDestination;
+
         }
     }
 }

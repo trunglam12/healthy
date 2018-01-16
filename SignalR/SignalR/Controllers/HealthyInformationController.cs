@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.SignalR;
+using Newtonsoft.Json;
 using SignalR.Entity;
 using SignalR.Hubs;
 using SignalR.Repository;
@@ -54,9 +55,9 @@ namespace SignalR.Controllers
                 }
 
                 UpdateHealthyCare(listHealthyInformationTemp);
-               return Json("Success", JsonRequestBehavior.AllowGet);
+                return Json("Success", JsonRequestBehavior.AllowGet);
             }
-               
+
 
             return Json("Fail", JsonRequestBehavior.AllowGet);
         }
@@ -66,7 +67,43 @@ namespace SignalR.Controllers
             GlobalHost.ConnectionManager.GetHubContext<ChartHub>().Clients.All.updateChart(listInformation);
         }
 
+        [HttpPost]
+        public void FilterData(string fromDate, string toDate)
+        {
+            if (fromDate.Equals(String.Empty) && toDate.Equals(string.Empty))
+            {
+                var listAllData = _healthyInformationRepository.GetAllHealthyInformation();
+                GlobalHost.ConnectionManager.GetHubContext<ChartHub>().Clients.All.updateChart(listAllData);
 
+            }
+            else
+             if (fromDate.Equals(String.Empty))
+            {
+
+                var dateTo = DateTime.Parse(toDate);
+                var resultFilterDate = _healthyInformationRepository.FilterData(DateTime.Now, dateTo);
+                GlobalHost.ConnectionManager.GetHubContext<ChartHub>().Clients.All.updateChart(resultFilterDate);
+
+            }
+            else
+              if (toDate.Equals(String.Empty))
+            {
+
+                var dateFrom = DateTime.Parse(fromDate);
+                var resultFilterDate = _healthyInformationRepository.FilterData(dateFrom, DateTime.Now);
+                GlobalHost.ConnectionManager.GetHubContext<ChartHub>().Clients.All.updateChart(resultFilterDate);
+
+            }
+            else
+            {
+                var dateFrom = DateTime.Parse(fromDate);
+                var dateTo = DateTime.Parse(toDate);
+                var resultFilterDate = _healthyInformationRepository.FilterData(dateFrom, dateTo);
+                GlobalHost.ConnectionManager.GetHubContext<ChartHub>().Clients.All.updateChart(resultFilterDate);
+            }
+
+
+        }
 
     }
 }

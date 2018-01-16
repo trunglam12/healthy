@@ -43,7 +43,7 @@ namespace SignalR.Controllers
 
         public ActionResult Login(LoginViewModel model)
         {
-            ModelState.Remove("Register");
+           
             if (ModelState.IsValid)
             {
                 bool result = _accountService.VerifyAccount(model.UserName, model.Password);
@@ -68,7 +68,7 @@ namespace SignalR.Controllers
         public ActionResult Logout()
         {
             Session.Abandon();
-            return RedirectToAction("Index", "Home", new { Area = "" });
+            return RedirectToAction("Index", "Account");
           
         }
     }

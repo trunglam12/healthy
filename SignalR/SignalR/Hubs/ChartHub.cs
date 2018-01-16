@@ -26,24 +26,9 @@ namespace SignalR.Hubs
 
         public List<HealthyInformation> GetAllInformation()
         {
-            var listHealthyInformationTemp = new List<HealthyInformation>();
-        
             var listResult = _healthyInformationRepository.GetAllHealthyInformation();
-            for(int i=0;i< listResult.Count;i++)
-            {
-                listHealthyInformationTemp.Add(new HealthyInformation
-                {
-                    CreateDate = listResult[i].CreateDate,
-                    HeartBeat = listResult[i].HeartBeat,
-                    ID = listResult[i].ID,
-                    Oxy = listResult[i].Oxy,
-                    UserID = listResult[i].UserID
-                });
-            }
 
-            //listHealthyInformationTemp.AddRange(listResult);
-
-            return listHealthyInformationTemp;
+            return _healthyInformationRepository.MapToListHealthy(listResult);
         }
     }
 }
