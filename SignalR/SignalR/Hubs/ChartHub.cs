@@ -24,9 +24,9 @@ namespace SignalR.Hubs
             Clients.All.hello();
         }
 
-        public List<HealthyInformation> GetAllInformation()
+        public List<HealthyInformation> GetAllInformation(string userName)
         {
-            var listResult = _healthyInformationRepository.GetAllHealthyInformation();
+            var listResult = _healthyInformationRepository.GetHealthyInformationByUsername(userName);
 
             return _healthyInformationRepository.MapToListHealthy(listResult);
         }

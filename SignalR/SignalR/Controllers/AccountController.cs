@@ -62,8 +62,26 @@ namespace SignalR.Controllers
 
             ModelState.AddModelError("", "Invalid password or username");
 
-            return RedirectToAction("Login");
+            return View("Index");
         }
+
+        public ActionResult ChangePassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ChangePassword(ResetPasswordViewModel model)
+        {
+            var resultChangePassword = _accountService.ChangePassword(Session["UserName"]?.ToString(), model.OldPassword, model.ConfirmPassword);
+            if(resultChangePassword)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            ModelState.AddModelError("Error", "Cannot change password");
+            return View();
+        
+        }
+
 
         public ActionResult Logout()
         {

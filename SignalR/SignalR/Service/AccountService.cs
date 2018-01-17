@@ -32,5 +32,23 @@ namespace SignalR.Service
             return false;
           
         }
+
+        public bool ChangePassword(string userName, string oldPassword,string confirmPassword)
+        {
+            var oldAccount = _accountRepository.GetAllUser().Where(c => c.UserName.ToLower() == userName.ToLower() || c.Email.ToLower() == userName.ToLower()).FirstOrDefault();
+            if (oldAccount != null)
+            {
+                var comparePassword=  _passwordHasher.VerifyHashedPassword(oldAccount, oldAccount.Password, oldPassword) == PasswordVerificationResult.Success;
+                if(comparePassword)
+                {
+                    oldAccount.Password = _passwordHasher.HashPassword(oldAccount, confirmPassword);
+                    _accountRepository.Update(oldAccount, userName);
+                    return true;
+                }
+            }
+
+            return false;
+
+        }
     }
 }

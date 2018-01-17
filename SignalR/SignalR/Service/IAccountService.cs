@@ -8,5 +8,6 @@ namespace SignalR.Service
     public interface IAccountService
     {
        bool  VerifyAccount(string username, string password);
+        bool ChangePassword(string userName, string oldPassword, string confirmPassword);
     }
 }

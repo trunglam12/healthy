@@ -11,5 +11,6 @@ namespace SignalR.Repository
         User GetUser(int id);
         List<User> GetAllUser();
         bool Insert(User user);
+        void Update(User user, string userName);
     }
 }

@@ -18,6 +18,12 @@ namespace SignalR.Repository
         {
             return MapToListHealthy(_healthyEntities.HealthyInformation.ToList());
         }
+        public List<HealthyInformation> GetHealthyInformationByUsername(string userName)
+        {
+            var listDataResult = _healthyEntities.HealthyInformation.Where(c => c.User.UserName.Equals(userName)).ToList();
+
+            return MapToListHealthy(listDataResult);
+        }
 
         public bool Insert(HealthyInformation healthyInformation)
         {
@@ -30,9 +36,9 @@ namespace SignalR.Repository
             return newInformation != null ? true : false;
         }
 
-        public List<HealthyInformation> FilterData(DateTime fromDate,DateTime toDate)
+        public List<HealthyInformation> FilterData(DateTime fromDate,DateTime toDate,string userName)
         {
-            var listAllData = MapToListHealthy(GetAllHealthyInformation());
+            var listAllData = MapToListHealthy(GetHealthyInformationByUsername(userName));
             return listAllData.Where(c=>c.CreateDate >= fromDate && c.CreateDate<=toDate).ToList();
          
         }

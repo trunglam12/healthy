@@ -25,10 +25,12 @@ namespace SignalR
             bundles.Add(new ScriptBundle("~/bundles/chartjs").Include(
                         "~/Scripts/libs/Chart.js",
                          "~/Scripts/jquery-ui.js",
+                         "~/Scripts/libs/bootstrap-table.js",
                         "~/Scripts/script.js"));
 
             bundles.Add(new StyleBundle("~/Content/css/chart").Include(
-                   "~/Content/css/jquery-ui.css"));
+                   "~/Content/css/jquery-ui.css",
+                    "~/Content/css/bootstrap-table.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/admin").Include(
                         "~/Scripts/jquery.mCustomScrollbar.concat.js",

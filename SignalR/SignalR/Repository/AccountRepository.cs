@@ -37,5 +37,16 @@ namespace SignalR.Repository
             return newUser != null ? true : false;
 
         }
+        public void Update(User user,string userName)
+        {
+            var newUser = _healthyEntities.User.FirstOrDefault(c => c.UserName.Equals(userName));
+            if(newUser!=null)
+            {
+                _healthyEntities.Entry(newUser).CurrentValues.SetValues(user);
+                _healthyEntities.SaveChanges();
+            }
+           
+         
+        }
     }
 }

@@ -101,8 +101,13 @@
                                 <ul class="dropdown-menu dropdown-usermenu pull-right">
 
                                     <li>
+                                        <a href="@Url.Action("ChangePassword","Account")">
+                                            <i class="fa fa-unlock" style="float : right"></i>Change Password
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a href="#">
-                                            <i class="fa fa-unlock" style="float : right"></i>EditPassWord
+                                            <i class="fa fa-unlock" style="float : right"></i>Profile
                                         </a>
                                     </li>
                                     <li>
@@ -149,7 +154,7 @@
 
         var healthyCare = $.connection.HealthyCare
         function init() {
-            healthyCare.server.getAllInformation().done(function (informations) {
+            healthyCare.server.getAllInformation('@Session["UserName"]').done(function (informations) {
                 $.each(informations, function () {
                     initChartJS(informations);
 

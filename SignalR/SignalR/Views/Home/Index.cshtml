@@ -4,14 +4,14 @@
 
 <div class="page-title">
     <div class="title_left">
-        <h3>Thống kê</h3>
+        <h3>Biểu đồ</h3>
 
         <canvas id="line-chart" width="100%" height="100%"></canvas>
 
-        <div class='form-group'>
+        <div class='col-md-12'>
             <div class='col-md-3 col-sm-6'>
                 <label for="from" class="form-label">From</label>
-                <input type="text" id="fromDate" name="fromDate" class="form-control "/>
+                <input type="text" id="fromDate" name="fromDate" class="form-control " />
             </div>
             <div class='col-md-3 col-sm-6'>
                 <label for="to" class="form-label">To</label>
@@ -21,6 +21,20 @@
                 <label class="form-label" style='visibility: hidden;'>zxc</label>
                 <input type="button" value='Search' id='search' class='btn btn-success'>
             </div>
+            <div class="col-md-5">&nbsp;</div>
+        </div>
+        <div class='col-md-12' style='margin: 15px;'>
+            <h3>Bảng Thống kê Dữ Liệu</h3>
+            <table data-pagination="true" data-page-list="[5, 10, 20, 50, 100, 200]" data-height="300" id="table">
+                <thead>
+                    <tr>
+                        <th data-field="CreateDate" data-align="center" data-sortable="true">Date</th>
+                        <th data-field="HeartBeat" data-align="center" data-sortable="true">HeartBeat</th>
+                        <th data-field="Oxy" data-align="center" data-sortable="true">Oxy</th>
+                        @*<th data-field="Status" data-align="center" data-sortable="true">Status</th>*@
+                    </tr>
+                </thead>
+            </table>
         </div>
     </div>
 </div>

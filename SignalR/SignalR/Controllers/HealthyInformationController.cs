@@ -41,7 +41,7 @@ namespace SignalR.Controllers
             {
                 var listHealthyInformationTemp = new List<HealthyInformation>();
 
-                var listResult = _healthyInformationRepository.GetAllHealthyInformation();
+                var listResult = _healthyInformationRepository.GetHealthyInformationByUsername(Session["UserName"]?.ToString());
                 for (int i = 0; i < listResult.Count; i++)
                 {
                     listHealthyInformationTemp.Add(new HealthyInformation
@@ -72,7 +72,7 @@ namespace SignalR.Controllers
         {
             if (fromDate.Equals(String.Empty) && toDate.Equals(string.Empty))
             {
-                var listAllData = _healthyInformationRepository.GetAllHealthyInformation();
+                var listAllData = _healthyInformationRepository.GetHealthyInformationByUsername(Session["UserName"]?.ToString());
                 GlobalHost.ConnectionManager.GetHubContext<ChartHub>().Clients.All.updateChart(listAllData);
 
             }
@@ -81,7 +81,7 @@ namespace SignalR.Controllers
             {
 
                 var dateTo = DateTime.Parse(toDate);
-                var resultFilterDate = _healthyInformationRepository.FilterData(DateTime.Now, dateTo);
+                var resultFilterDate = _healthyInformationRepository.FilterData(DateTime.Now, dateTo, Session["UserName"]?.ToString());
                 GlobalHost.ConnectionManager.GetHubContext<ChartHub>().Clients.All.updateChart(resultFilterDate);
 
             }
@@ -90,7 +90,7 @@ namespace SignalR.Controllers
             {
 
                 var dateFrom = DateTime.Parse(fromDate);
-                var resultFilterDate = _healthyInformationRepository.FilterData(dateFrom, DateTime.Now);
+                var resultFilterDate = _healthyInformationRepository.FilterData(dateFrom, DateTime.Now, Session["UserName"]?.ToString());
                 GlobalHost.ConnectionManager.GetHubContext<ChartHub>().Clients.All.updateChart(resultFilterDate);
 
             }
@@ -98,7 +98,7 @@ namespace SignalR.Controllers
             {
                 var dateFrom = DateTime.Parse(fromDate);
                 var dateTo = DateTime.Parse(toDate);
-                var resultFilterDate = _healthyInformationRepository.FilterData(dateFrom, dateTo);
+                var resultFilterDate = _healthyInformationRepository.FilterData(dateFrom, dateTo, Session["UserName"]?.ToString());
                 GlobalHost.ConnectionManager.GetHubContext<ChartHub>().Clients.All.updateChart(resultFilterDate);
             }
 

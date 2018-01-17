@@ -18,8 +18,12 @@ function initChartJS(res) {
     var dataLineOne = [],
         dataLineTwo = [],
         date = [];
+
     if (res !== '' && res !== 'undentified')
     {
+        $('#table').bootstrapTable({
+            data: res
+        });
         res.forEach(function (element, index) {
             dataLineOne.push(element['Oxy']);
             dataLineTwo.push(element['HeartBeat']);
