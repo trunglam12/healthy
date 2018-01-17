@@ -18,7 +18,9 @@ function initChartJS(res) {
     var dataLineOne = [],
         dataLineTwo = [],
         date = [];
-
+    for (var i = 0; i < res.length; i++) {
+        res[i].CreateDate = new Date(res[i].CreateDate).toLocaleDateString();
+    }
     if (res !== '' && res !== 'undentified')
     {
         $('#table').bootstrapTable({
