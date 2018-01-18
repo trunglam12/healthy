@@ -11,16 +11,6 @@
     <NavigationProperty Name="User" Relationship="Self.FK_User_Information" FromRole="HealthyInformation" ToRole="User" />
     <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="ID" />
@@ -33,6 +23,7 @@
     <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="HealthyInformation" Relationship="Self.FK_User_Information" FromRole="User" ToRole="HealthyInformation" />
     <NavigationProperty Name="UserRelationship" Relationship="Self.FK_UserRelationship_User" FromRole="User" ToRole="UserRelationship" />
+    <Property Name="FullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="UserRelationship">
     <Key>
@@ -71,7 +62,6 @@
   </Association>
   <EntityContainer Name="HealthyEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="HealthyInformation" EntityType="Self.HealthyInformation" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="User" EntityType="Self.User" />
     <EntitySet Name="UserRelationship" EntityType="Self.UserRelationship" />
     <AssociationSet Name="FK_User_Information" Association="Self.FK_User_Information">

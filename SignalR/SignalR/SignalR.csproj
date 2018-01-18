@@ -278,6 +278,8 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HealthyInformationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\UserRelationshipController.cs" />
     <Compile Include="Entity\HealthyInformation.cs">
       <DependentUpon>HealthyModel.tt</DependentUpon>
     </Compile>
@@ -302,9 +304,6 @@
     <Compile Include="Entity\sp_helpdiagrams_Result.cs">
       <DependentUpon>HealthyModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\sysdiagrams.cs">
-      <DependentUpon>HealthyModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Entity\User.cs">
       <DependentUpon>HealthyModel.tt</DependentUpon>
     </Compile>
@@ -317,14 +316,20 @@
     <Compile Include="Helper\ExtentionMethod.cs" />
     <Compile Include="Hubs\ChartHub.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
+    <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Models\ResetPasswordViewModel.cs" />
+    <Compile Include="Models\UserProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AccountRepository.cs" />
     <Compile Include="Repository\HealthyInformationRepository.cs" />
     <Compile Include="Repository\IAccountRepository.cs" />
     <Compile Include="Repository\IHealthyInformationRepository.cs" />
+    <Compile Include="Repository\IUserRelationshipRepository.cs" />
+    <Compile Include="Repository\UserRelationshipRepository.cs" />
     <Compile Include="Service\AccountService.cs" />
     <Compile Include="Service\IAccountService.cs" />
+    <Compile Include="Service\IUserRelationshipService.cs" />
+    <Compile Include="Service\UserRelationshipService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -399,19 +404,6 @@
     <Content Include="Content\fonts\UTMMobifoneKT.svg" />
     <Content Include="Content\fonts\UTMNeoSansIntel.svg" />
     <Content Include="Content\fonts\UTMNeoSansIntelBold.svg" />
-    <Content Include="Content\Images\Avatar\17.jpg" />
-    <Content Include="Content\Images\Avatar\42.jpg" />
-    <Content Include="Content\Images\Avatar\59.jpg" />
-    <Content Include="Content\Images\Avatar\78.JPG" />
-    <Content Include="Content\Images\Avatar\anh-dai-dien-facebook-buon.jpg" />
-    <Content Include="Content\Images\Avatar\chua-Thay_.jpg" />
-    <Content Include="Content\Images\Avatar\DangDinhDuy.jpg" />
-    <Content Include="Content\Images\Avatar\logo.jpg" />
-    <Content Include="Content\Images\Avatar\user-placeholder.png" />
-    <Content Include="Content\Images\Avatar\WIN_20160826_13_04_52_Pro.jpg" />
-    <Content Include="Content\Images\Avatar\WIN_20160831_11_20_42_Pro.jpg" />
-    <Content Include="Content\Images\Avatar\wow1 [DesktopNexus.com].jpg" />
-    <Content Include="Content\Images\Avatar\woww1713w8W308u05 [DesktopNexus.com].jpg" />
     <Content Include="Content\Images\FileThumbs\v0_XEltYWdlc1wwMjIuanBn.jpg" />
     <Content Include="Content\Images\FileThumbs\v0_XEltYWdlc1wwMS5qcGc§.jpg" />
     <Content Include="Content\Images\FileThumbs\v0_XEltYWdlc1wwMTEuanBn.jpg" />
@@ -486,6 +478,7 @@
     <Content Include="Content\Images\flags\en-US.png" />
     <Content Include="Content\Images\flags\vi-VN-small.png" />
     <Content Include="Content\Images\flags\vi-VN.png" />
+    <Content Include="Content\Images\generic-user-purple.png" />
     <Content Include="Content\Images\HTMLMail\confirm.png" />
     <Content Include="Content\Images\HTMLMail\connect.png" />
     <Content Include="Content\Images\HTMLMail\fb.png" />
@@ -747,11 +740,16 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\UserProfile.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\UserRelationship\Edit.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
+    <Content Include="Views\Login\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Images\Avatar\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\HealthyInformation\" />
   </ItemGroup>

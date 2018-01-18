@@ -8,7 +8,8 @@ namespace SignalR.Repository
 {
     public interface IAccountRepository
     {
-        User GetUser(int id);
+        User GetForID(int id);
+        User GetForUserName(string userName);
         List<User> GetAllUser();
         bool Insert(User user);
         void Update(User user, string userName);

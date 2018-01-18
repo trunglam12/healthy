@@ -24,7 +24,7 @@ namespace SignalR.Repository
             return _healthyEntities.User.ToList();
         }
 
-        public User GetUser(int id)
+        public User GetForID(int id)
         {
             return _healthyEntities.User.Where(c=>c.ID.Equals(id)).FirstOrDefault();
         }
@@ -39,14 +39,20 @@ namespace SignalR.Repository
         }
         public void Update(User user,string userName)
         {
-            var newUser = _healthyEntities.User.FirstOrDefault(c => c.UserName.Equals(userName));
-            if(newUser!=null)
+            var currentUser = _healthyEntities.User.FirstOrDefault(c => c.UserName.Equals(userName));
+            if(currentUser != null)
             {
-                _healthyEntities.Entry(newUser).CurrentValues.SetValues(user);
+                _healthyEntities.Entry(currentUser).CurrentValues.SetValues(user);
                 _healthyEntities.SaveChanges();
             }
-           
-         
+
+        }
+
+       public User GetForUserName(string userName)
+        {
+            var currentUser = _healthyEntities.User.FirstOrDefault(c => c.UserName.Equals(userName));
+
+            return currentUser;
         }
     }
 }

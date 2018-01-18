@@ -28,7 +28,6 @@ namespace SignalR.Entity
         }
     
         public virtual DbSet<HealthyInformation> HealthyInformation { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<UserRelationship> UserRelationship { get; set; }
     

@@ -6,7 +6,6 @@
     <edmx:Diagrams>
       <Diagram DiagramId="0ccaae540dc24e48a2689f5d05cf9e4c" Name="Diagram1">
         <EntityTypeShape EntityType="HealthyModel.HealthyInformation" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="HealthyModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HealthyModel.User" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="HealthyModel.UserRelationship" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
         <AssociationConnector Association="HealthyModel.FK_User_Information" ManuallyRouted="false" />

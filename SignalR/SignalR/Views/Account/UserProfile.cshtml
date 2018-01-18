@@ -1,0 +1,168 @@
+﻿@model SignalR.Entity.User
+@using Newtonsoft.Json
+
+@{
+    ViewBag.Title = "UserProfile";
+
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
+     
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+
+
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">@Model.UserName</h3>
+                </div>
+                <div class="panel-body">                 
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="~/Content/Images/generic-user-purple.png"" class="img-circle img-responsive"> </div>
+                        <div class=" col-md-9 col-lg-9 ">
+                            <table class="table table-user-information">
+                                <tbody>
+                                    <tr>
+                                        <td>UserName:</td>
+                                        <td>@Model.UserName</td>
+                                    </tr>
+                                    <tr>
+                                        <td>FullName:</td>
+                                        <td>@Model.FullName</td>
+                                    </tr>
+                                  
+                                    <tr>
+                                        <td>Address</td>
+                                        <td>@Model.Address</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Email</td>
+                                        <td><a href="mailto:@Model.Email">@Model.Email</a></td>
+                                    </tr>
+                                <td>Phone Number</td>
+                                <td>
+                                   @Model.Mobile (Mobile)<br>
+                                </td>
+
+                                </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <a  href="@Url.Action("SendSMS","Account",new { userID=Model.ID})" data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+                    <span class="pull-right">
+                        <a href="@Url.Action("Edit","Account",new { id=Model.ID})" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                        <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                    </span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h3>Realtionship Information</h3>
+    <div class="well col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+        @foreach (var relation in Model.UserRelationship)
+        {
+            <div class="row user-row">
+                <div class="col-xs-3 col-sm-2 col-md-1 col-lg-1">
+                    <img class="img-circle"
+                         src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50"
+                         alt="User Pic">
+                </div>
+                <div class="col-xs-8 col-sm-9 col-md-10 col-lg-10">
+                    <strong>@relation.FullName</strong><br>
+                    <span class="text-muted">Phone: @relation.Phone</span>
+                </div>
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 dropdown-user" data-for=".@string.Format("user{0}",relation.ID)">
+                    <i class="glyphicon glyphicon-chevron-down text-muted"></i>
+                </div>
+            </div>
+            <div class="row user-infos @string.Format("user{0}",relation.ID)">
+                <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">User information</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-3 col-lg-3 hidden-xs hidden-sm">
+                                    <img class="img-circle"
+                                         src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100"
+                                         alt="User Pic">
+                                </div>
+                                <div class="col-xs-2 col-sm-2 hidden-md hidden-lg">
+                                    <img class="img-circle"
+                                         src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50"
+                                         alt="User Pic">
+                                </div>
+                                <div class="col-xs-10 col-sm-10 hidden-md hidden-lg">
+                                    <strong>@relation.FullName</strong><br>
+                                    <dl>
+                                        <dt>Full Name:</dt>
+                                        <dd>@relation.FullName</dd>
+                                        <dt>Phone:</dt>
+                                        <dd>@relation.Phone</dd>
+                                        <dt>Address</dt>
+                                        <dd>@relation.Address</dd>
+                                       
+                                    </dl>
+                                </div>
+                                <div class=" col-md-9 col-lg-9 hidden-xs hidden-sm">
+                                  
+                                    <table class="table table-user-information">
+                                        <tbody>
+                                            <tr>
+                                                <td>Full Name:</td>
+                                                <td>@relation.FullName</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Phone:</td>
+                                                <td>@relation.Phone</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Address</td>
+                                                <td>@relation.Address</td>
+                                            </tr>
+                                           
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            <a class="btn btn-sm btn-primary" 
+                                    data-toggle="tooltip"
+                                    data-original-title="Send message to user" >
+                                <i class="glyphicon glyphicon-envelope"></i>
+                            </a>
+                            <span class="pull-right">
+                                <a class="btn btn-sm btn-warning" type="button"
+                                        data-toggle="tooltip"
+                                        data-original-title="Edit this user" href="@Url.Action("Edit","UserRelationship",new { id=relation.ID})">
+                                    <i class="glyphicon glyphicon-edit"></i>
+                                </a>
+                                <a class="btn btn-sm btn-danger" type="button"
+                                        data-toggle="tooltip"
+                                        data-original-title="Remove this user">
+                                    <i class="glyphicon glyphicon-remove"></i>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+       
+
+    </div>
+</div>

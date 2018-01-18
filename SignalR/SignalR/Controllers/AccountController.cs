@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using SignalR.Entity;
+using SignalR.Helper;
 using SignalR.Models;
 using SignalR.Repository;
 using SignalR.Service;
@@ -11,10 +12,12 @@ using System.Web.Mvc;
 
 namespace SignalR.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         IAccountService _accountService;
         IAccountRepository _accountRepository;
+        IUserRelationshipRepository _userRelationshipRepository;
+        IUserRelationshipService _userRealtionshipService;
         HealthyEntities _healthyEntities ;
         IPasswordHasher<User> _passwordHasher ;
         public AccountController()
@@ -24,46 +27,11 @@ namespace SignalR.Controllers
 
             _accountRepository = new AccountRepository(_healthyEntities);
             _accountService = new AccountService(_passwordHasher, _accountRepository);
+            _userRelationshipRepository = new UserRelationshipRepository(_healthyEntities);
+
+            _userRealtionshipService = new UserRelationshipService(_userRelationshipRepository); 
         }
-        // GET: Account
-        public ActionResult Index()
-        {
-            //var user = new User { UserName = "admin", Password = "123456" };
-            //user.Password = _passwordHasher.HashPassword(user, "123456");
-
-            //_accountRepository.Insert(user);
-            //return to home already login
-            if (Session["UserName"] != null)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-
-            return View();
-        }
-
-        public ActionResult Login(LoginViewModel model)
-        {
-           
-            if (ModelState.IsValid)
-            {
-                bool result = _accountService.VerifyAccount(model.UserName, model.Password);
-                if (result)
-                {
-                    Session["UserName"] = model.UserName;
-
-                    return RedirectToAction("Index", "Home");
-
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Invalid password or username");
-                }
-            }
-
-            ModelState.AddModelError("", "Invalid password or username");
-
-            return View("Index");
-        }
+      
 
         public ActionResult ChangePassword()
         {
@@ -82,12 +50,54 @@ namespace SignalR.Controllers
         
         }
 
-
-        public ActionResult Logout()
+        public ActionResult UserProfile()
         {
-            Session.Abandon();
-            return RedirectToAction("Index", "Account");
-          
+            var resultUser = _accountService.GetUserByUserName(Session["UserName"]?.ToString());
+            resultUser.UserRelationship = _userRealtionshipService.MapToListNonEntity(resultUser.UserRelationship.ToList());
+            return View(resultUser);
         }
+
+        public ActionResult Edit(int id)
+        {
+            var user = _accountRepository.GetForID(id);
+            return View(user);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(User model)
+        {
+            try
+            {
+                _accountRepository.Update(model,Session["UserName"]?.ToString());
+                return RedirectToAction("UserProfile", "Account");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("error", String.Format("Cannot Edit User Because {0}", ex.Message));
+            }
+
+            return View();
+        }
+
+        public ActionResult SendSMS(int userID)
+        {
+            var account = _accountRepository.GetForID(userID);
+            foreach(var relationship in account.UserRelationship)
+            {
+                var phone = relationship.Phone;
+                if(phone.Length > 0 && phone[0]=='0')
+                {
+                    phone = phone.Remove(0,1);
+                    ExtentionMethod.SendSMS(string.Format("{0}{1}","+84",phone),
+                        String.Format("{0} has {1} heart beat. Please call emergency!",account.FullName,"150"));
+                }
+              
+            }
+            //ExtentionMethod.SendSMS("+84965198634", "testsms");
+            return View("UserProfile");
+        }
+
+      
+
     }
 }
