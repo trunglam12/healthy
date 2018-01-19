@@ -692,6 +692,7 @@
     <Content Include="Content\fonts\UTMNeoSansIntelBold.woff" />
     <Content Include="Content\img\Image\Thumbs.db" />
     <Content Include="Content\UserFiles\Files\Giay dang ky kiem tra- SP det may-Thong tu 37.doc" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\default.js" />
     <Content Include="Scripts\jasny-bootstrap.js" />

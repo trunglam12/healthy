@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using Twilio;
@@ -32,16 +33,16 @@ namespace SignalR.Helper
         public static string GetSmsAccountSid()
         {
 
-            return "AC283d289fa6894f38ed141d070fb1e0de";
+            return ConfigurationManager.AppSettings["SmsSID"].ToString();
 
         }
         public static string GetSmsAuthToken()
         {
-            return "9dee64c9014a129f17d9298915369fb2";
+            return ConfigurationManager.AppSettings["SmsToken"].ToString();
         }
         public static string GetFromPhoneNumber()
         {
-            return "+12017201084";
+            return ConfigurationManager.AppSettings["PhoneNumber"].ToString();
         }
     }
 }

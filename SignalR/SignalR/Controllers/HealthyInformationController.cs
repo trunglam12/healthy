@@ -8,6 +8,7 @@ using SignalR.Repository;
 using SignalR.Service;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -29,7 +30,9 @@ namespace SignalR.Controllers
 
             _accountRepository = new AccountRepository(_healthyEntities);
             _accountService = new AccountService(_passwordHasher, _accountRepository);
-       
+            _healthyInformationRepository = new HealthyInformationRepository(_healthyEntities);
+
+
         }
 
         // GET: HealthyInformation
@@ -104,7 +107,7 @@ namespace SignalR.Controllers
              if (fromDate.Equals(String.Empty))
             {
 
-                var dateTo = DateTime.Parse(toDate);
+                var dateTo =  DateTime.ParseExact(toDate, "dd-MM-yyyy", CultureInfo.InvariantCulture);
                 var resultFilterDate = _healthyInformationRepository.FilterData(DateTime.Now, dateTo, Session["UserName"]?.ToString());
                 GlobalHost.ConnectionManager.GetHubContext<ChartHub>().Clients.All.updateChart(resultFilterDate);
 
@@ -113,15 +116,15 @@ namespace SignalR.Controllers
               if (toDate.Equals(String.Empty))
             {
 
-                var dateFrom = DateTime.Parse(fromDate);
+                var dateFrom = DateTime.ParseExact(fromDate, "dd-MM-yyyy", CultureInfo.InvariantCulture);
                 var resultFilterDate = _healthyInformationRepository.FilterData(dateFrom, DateTime.Now, Session["UserName"]?.ToString());
                 GlobalHost.ConnectionManager.GetHubContext<ChartHub>().Clients.All.updateChart(resultFilterDate);
 
             }
             else
             {
-                var dateFrom = DateTime.Parse(fromDate);
-                var dateTo = DateTime.Parse(toDate);
+                var dateFrom =DateTime.ParseExact(fromDate, "dd-MM-yyyy", CultureInfo.InvariantCulture);
+                var dateTo = DateTime.ParseExact(toDate, "dd-MM-yyyy", CultureInfo.InvariantCulture);
                 var resultFilterDate = _healthyInformationRepository.FilterData(dateFrom, dateTo, Session["UserName"]?.ToString());
                 GlobalHost.ConnectionManager.GetHubContext<ChartHub>().Clients.All.updateChart(resultFilterDate);
             }

@@ -94,7 +94,7 @@ namespace SignalR.Controllers
               
             }
             //ExtentionMethod.SendSMS("+84965198634", "testsms");
-            return View("UserProfile");
+            return RedirectToAction("UserProfile");
         }
 
       
